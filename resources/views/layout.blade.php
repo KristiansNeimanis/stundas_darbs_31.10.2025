@@ -16,6 +16,7 @@
             <nav>
                 <ul>
                     <li><a href="{{ route('products.index') }}">Products</a></li>
+                    <li><a href="{{ route('products.create') }}">Create Product</a></li>
                 </ul>
             </nav>
         </aside>

@@ -1,3 +1,63 @@
-body {
+/* Testa nosacījums - sarkans virsraksts */
+.content h2 {
     color: red;
+}
+
+/* Holy Grail CSS Grid */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "left content right"
+        "footer footer footer";
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    background: #ddd;
+    padding: 10px;
+}
+
+.left-sidebar {
+    grid-area: left;
+    background: #f4f4f4;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Flexbox saraksts kolonnā */
+}
+
+.left-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.right-sidebar {
+    grid-area: right;
+    background: #f4f4f4;
+    padding: 10px;
+}
+
+.content {
+    grid-area: content;
+    padding: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    background: #ddd;
+    padding: 10px;
 }

@@ -1,24 +1,32 @@
 <x-layout>
-    <h1>Products</h1>
+    <h2>Products List</h2>
+    <a href="{{ route('products.create') }}">Create New Product</a>
 
-    <a href="{{ route('products.create') }}">➕ Create new product</a>
-
-    @if (session('success'))
-        <p style="color: green">{{ session('success') }}</p>
-    @endif
-
-    <ul>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
         @foreach($products as $product)
-            <li>
-                <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
-                - €{{ $product->price }}
-                <a href="{{ route('products.edit', $product) }}">Edit</a>
-                <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
+            <tr>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->description }}</td>
+                <td>{{ $product->price }}</td>
+                <td>
+                    <a href="{{ route('products.edit', $product) }}">Edit</a>
+                    <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
         @endforeach
-    </ul>
+        </tbody>
+    </table>
 </x-layout>
