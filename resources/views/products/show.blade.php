@@ -1,8 +1,24 @@
 <x-layout>
+    @include('components.flash-success')
+    @include('components.flash-errors')
+
     <h1>{{ $product->name }}</h1>
     <p>{{ $product->description }}</p>
-    <p>€{{ $product->price }}</p>
+    <p>Price: ${{ $product->price }}</p>
+    <p>Quantity: <span id="quantity">{{ $product->quantity }}</span></p>
+    <p>Status: {{ $product->status }}</p>
 
-    <a href="{{ route('products.edit', $product) }}">Edit</a> |
-    <a href="{{ route('products.index') }}">Back</a>
+    <div class="quantity-controls">
+        <form method="POST" action="{{ route('products.decrement', $product) }}">
+            @csrf
+            <button class="btn-small">-</button>
+        </form>
+
+        <form method="POST" action="{{ route('products.increment', $product) }}">
+            @csrf
+            <button class="btn-small">+</button>
+        </form>
+    </div>
+
+    <a href="{{ route('products.index') }}" class="btn">Back</a>
 </x-layout>
