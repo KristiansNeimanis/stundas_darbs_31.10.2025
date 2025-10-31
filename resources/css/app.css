@@ -1,9 +1,4 @@
-/* Testa nosacījums - sarkans virsraksts */
-.content h2 {
-    color: red;
-}
-
-/* Holy Grail CSS Grid */
+/* Holy Grail layout */
 body, html {
     margin: 0;
     padding: 0;
@@ -12,43 +7,38 @@ body, html {
 
 .container {
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    grid-template-rows: auto 1fr auto;
     grid-template-areas:
         "header header header"
         "left content right"
         "footer footer footer";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+    gap: 10px;
 }
 
 .header {
     grid-area: header;
-    background: #ddd;
+    background: #eee;
     padding: 10px;
 }
 
 .left-sidebar {
     grid-area: left;
-    background: #f4f4f4;
+    background: #f0f0f0;
     padding: 10px;
-    display: flex;
-    flex-direction: column; /* Flexbox saraksts kolonnā */
 }
 
-.left-sidebar nav ul {
+.left-sidebar ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.left-sidebar nav ul li {
-    margin-bottom: 10px;
-}
-
-.right-sidebar {
-    grid-area: right;
-    background: #f4f4f4;
-    padding: 10px;
+.left-sidebar a {
+    text-decoration: none;
 }
 
 .content {
@@ -56,8 +46,19 @@ body, html {
     padding: 10px;
 }
 
+.right-sidebar {
+    grid-area: right;
+    background: #f9f9f9;
+    padding: 10px;
+}
+
 .footer {
     grid-area: footer;
-    background: #ddd;
+    background: #eee;
     padding: 10px;
+}
+
+/* Testa stils */
+h1 {
+    color: red; /* pārbaudām CSS ielādi */
 }

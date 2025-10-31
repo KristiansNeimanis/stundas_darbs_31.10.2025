@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'Products App' }}</title>
+    <title>{{ $title ?? 'My App' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header class="header">
-        <h1>Test Logo</h1>
-    </header>
-
     <div class="container">
+        <header class="header">
+            <h1>Test Logo</h1>
+        </header>
+
         <aside class="left-sidebar">
             <nav>
                 <ul>
                     <li><a href="{{ route('products.index') }}">Products</a></li>
+                    <!-- citi linki -->
                 </ul>
             </nav>
         </aside>
@@ -25,12 +26,12 @@
         </main>
 
         <aside class="right-sidebar">
-            <p>Test Ads</p>
+            <p>Test reklāmas teksts</p>
         </aside>
-    </div>
 
-    <footer class="footer">
-        <p>© Test Company</p>
-    </footer>
+        <footer class="footer">
+            <p>&copy; 2025 Test Company</p>
+        </footer>
+    </div>
 </body>
 </html>

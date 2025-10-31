@@ -21,9 +21,12 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'description' => 'nullable'
+            'name' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:0',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+            'expiration_date' => 'nullable|date',
+            'status' => 'required|string|in:active,inactive'
         ]);
 
         Products::create($validated); // ✅
