@@ -8,12 +8,15 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header>Test Logo</header>
+    <header class="header">
+        <h1>Test Logo</h1>
+    </header>
     <div class="container">
         <aside class="left-sidebar">
-            <nav>
+            <nav class="nav">
                 <ul>
                     <li><a href="{{ route('products.index') }}">Products</a></li>
+                    <li><a href="{{ route('products.create') }}">Add Product</a></li>
                 </ul>
             </nav>
         </aside>
@@ -26,6 +29,8 @@
             Ads / Promotions
         </aside>
     </div>
-    <footer>&copy; 2025</footer>
+    <footer class="footer">
+        <p>&copy; 2025 Test Company</p>
+    </footer>
 </body>
 </html>

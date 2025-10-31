@@ -1,17 +1,7 @@
 <x-layout>
-    <header class="header">
-        <h1>Test Logo</h1>
-    </header>
 
     <div class="container">
-        <aside class="left-sidebar">
-            <nav class="nav">
-                <ul>
-                    <li><a href="{{ route('products.index') }}">Products</a></li>
-                    <li><a href="{{ route('products.create') }}">Add Product</a></li>
-                </ul>
-            </nav>
-        </aside>
+
 
         <main class="main-content">
             @include('components.flash-success')
@@ -38,19 +28,18 @@
                             <td>
                                 <a href="{{ route('products.show', $product) }}">View</a>
                                 <a href="{{ route('products.edit', $product) }}">Edit</a>
+
+                                <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </main>
-
-        <aside class="right-sidebar">
-            <p>Test Ads</p>
-        </aside>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2025 Test Company</p>
-    </footer>
 </x-layout>
